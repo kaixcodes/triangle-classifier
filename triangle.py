@@ -21,10 +21,18 @@ def classify_triangle(a, b, c) -> str:
         return "Equilateral"
 
     if a == b or b == c or a == c:
-        if math.isclose(math.pow(a, 2) + math.pow(b, 2), math.pow(c, 2)):
+        if (
+            math.isclose(a**2 + b**2, c**2)
+            or math.isclose(a**2 + c**2, b**2)
+            or math.isclose(b**2 + c**2, a**2)
+        ):
             return "Right Isosceles"
         return "Isosceles"
 
-    if math.isclose(math.pow(a, 2) + math.pow(b, 2), math.pow(c, 2)):
+    if (
+        math.isclose(a**2 + b**2, c**2)
+        or math.isclose(a**2 + c**2, b**2)
+        or math.isclose(b**2 + c**2, a**2)
+    ):
         return "Right Scalene"
     return "Scalene"
